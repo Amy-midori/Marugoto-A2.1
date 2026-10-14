@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>わたしの趣味｜～ことです の練習</title>
+<style>
+:root{--ink:#183d3c;--teal:#126b63;--paper:#f5f3eb;--line:#d7e3dc}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Yu Gothic","Meiryo",sans-serif;line-height:1.8}main{max-width:880px;margin:auto;padding:40px 20px 64px}.tag{font-size:.85rem;font-weight:bold;color:var(--teal);letter-spacing:.12em}h1{font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.4;margin:12px 0}h2{font-size:1.25rem;margin-top:36px}.intro,.card{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;margin:16px 0}.intro{border-left:6px solid var(--teal)}.pattern{font-weight:bold;font-size:1.2rem}.small{font-size:.9rem;color:#526b67}.number{display:inline-block;color:var(--teal);font-weight:bold;margin-bottom:8px}label{display:block;margin-top:14px}select,textarea{font:inherit;border:1px solid #829e95;background:#fff;border-radius:8px;padding:10px;width:100%;color:var(--ink)}select{max-width:440px}textarea{min-height:95px}button{font:inherit;border:0;border-radius:10px;background:var(--teal);color:white;padding:12px 22px;cursor:pointer}button:hover{background:#084e48}button:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #e8a544;outline-offset:3px}.secondary{background:white;color:var(--teal);border:1px solid var(--teal)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}.feedback{margin:10px 0 0;font-weight:bold}.correct{color:#156348}.wrong{color:#9a3434}#score{font-size:1.2rem;font-weight:bold}details{margin-top:14px}summary{cursor:pointer;color:var(--teal)}footer{font-size:.85rem;margin-top:40px;border-top:1px solid var(--line);padding-top:20px}a{color:var(--teal)}@media print{body{background:white}main{padding:0}.card{break-inside:avoid}.actions,#score{display:none}select{appearance:none}}
+.de{display:block;font-size:.9rem;font-weight:normal;color:#526b67;line-height:1.6;margin-top:6px}.feedback .de{color:inherit}button .de{color:inherit;font-size:.8rem;margin-top:2px}
+</style>
+</head>
+<body><main>
+<header><span class="tag">日本語 A2 ・ 文法の練習</span><h1>辞書形と<br>「～ことです」</h1><p>まず動詞の辞書形を選び、次に文に合う形を選びましょう。<span class="de" lang="de">Wähle zuerst die Wörterbuchform des Verbs und dann die Form, die zum Satz passt.</span></p></header>
+<section class="intro" aria-label="文法の説明"><div class="pattern">趣味は、動詞の辞書形 ＋ ことです。<span class="de" lang="de">Über Hobbys sprechen: 趣味は、 + Verb in der Wörterbuchform + ことです。</span></div><p>例：音楽を 聞きます。 → 趣味は、音楽を <strong>聞くことです。</strong><span class="de" lang="de">Beispiel: Ich höre Musik. → Mein Hobby ist es, Musik zu hören.</span><br>例：料理を します。 → 趣味は、料理を <strong>することです。</strong><span class="de" lang="de">Beispiel: Ich koche. → Mein Hobby ist es, zu kochen.</span></p><p class="small">「こと」で、動作を名詞のように使えます。この練習では、趣味について話す文を作ります。<span class="de" lang="de">Mit こと wird eine Handlung nominalisiert, also wie ein Nomen verwendet. In dieser Übung bildest du Sätze über Hobbys. Die Wörterbuchform ist die Grundform des Verbs.</span></p></section>
+<form id="practice">
+<h2>1　ます形 → 辞書形（5問）<span class="de" lang="de">Von der masu-Form zur Wörterbuchform (5 Aufgaben)</span></h2><p>ます形を見て、正しい辞書形を選んでください。<span class="de" lang="de">Sieh dir die masu-Form an und wähle die richtige Wörterbuchform.</span></p>
+<div id="verbs"></div>
+<h2>2　「～ます」「～ことです」（5問）<span class="de" lang="de">Wähle zwischen ～ます und ～ことです (5 Aufgaben)</span></h2><p>文に合う答えを、二つの選択肢から選んでください。<span class="de" lang="de">Wähle aus den zwei Möglichkeiten die Antwort, die zum Satz passt.</span></p>
+<div id="reading"></div>
+<div class="actions"><button type="submit">答え合わせ<span class="de" lang="de">Antworten prüfen</span></button><button type="button" id="reset" class="secondary">もう一度<span class="de" lang="de">Noch einmal</span></button></div>
+<div id="score" role="status" aria-live="polite"></div>
+</form>
+<footer>問題形式の参考：<a href="https://a2.marugotoweb.jp/en/grammar/lesson2/practice1.html" target="_blank" rel="noopener">MARUGOTO Plus 初級1（A2）第2課 Q1（1）（2）</a>。このページの問題・解説はオリジナルです。国際交流基金の公式教材ではありません。<br>登録不要・回答の送信なし。回答はこの画面内でのみ使われ、保存されません。<span class="de" lang="de">Das Aufgabenformat orientiert sich an MARUGOTO Plus, Lektion 2, Q1 (1) und (2). Die Aufgaben und Erklärungen wurden eigens für diese Seite erstellt. Dies ist kein offizielles Lehrmaterial der Japan Foundation. Keine Registrierung erforderlich. Deine Antworten werden weder übermittelt noch gespeichert.</span></footer>
+</main>
+<script>
+'use strict';
+const questions = [
+ {
+  "group": "verbs",
+  "text": "とります → （　　　）",
+  "hint": "写真を とります。",
+  "options": [
+   "とりる",
+   "とる"
+  ],
+  "answer": 1,
+  "explanation": "「とります」の辞書形は「とる」です。「とりる」ではありません。"
+ },
+ {
+  "group": "verbs",
+  "text": "たべます → （　　　）",
+  "hint": "パンを たべます。",
+  "options": [
+   "たべる",
+   "たぶ"
+  ],
+  "answer": 0,
+  "explanation": "「たべます」の辞書形は「たべる」です。"
+ },
+ {
+  "group": "verbs",
+  "text": "おきます → （　　　）",
+  "hint": "朝 7時に おきます。",
+  "options": [
+   "おく",
+   "おきる"
+  ],
+  "answer": 1,
+  "explanation": "朝、起きるときの「おきます」の辞書形は「おきる」です。"
+ },
+ {
+  "group": "verbs",
+  "text": "よみます → （　　　）",
+  "hint": "本を よみます。",
+  "options": [
+   "よむ",
+   "よみる"
+  ],
+  "answer": 0,
+  "explanation": "「よみます」の辞書形は「よむ」です。"
+ },
+ {
+  "group": "verbs",
+  "text": "みます → （　　　）",
+  "hint": "映画を みます。",
+  "options": [
+   "む",
+   "みる"
+  ],
+  "answer": 1,
+  "explanation": "「みます」の辞書形は「みる」です。"
+ },
+ {
+  "group": "reading",
+  "text": "しゅみは、写真を（　　　）。",
+  "options": [
+   "とります",
+   "とることです"
+  ],
+  "answer": 1,
+  "explanation": "しゅみを紹介するときは「辞書形＋ことです」を使います。しゅみは、写真をとることです。"
+ },
+ {
+  "group": "reading",
+  "text": "本が 好きです。毎日、本を（　　　）。",
+  "options": [
+   "よみます",
+   "よむことです"
+  ],
+  "answer": 0,
+  "explanation": "毎日の動作を話すので「よみます」を使います。毎日、本をよみます。"
+ },
+ {
+  "group": "reading",
+  "text": "しゅみは、映画を（　　　）。",
+  "options": [
+   "みることです",
+   "みます"
+  ],
+  "answer": 0,
+  "explanation": "しゅみを紹介する文です。しゅみは、映画をみることです。"
+ },
+ {
+  "group": "reading",
+  "text": "りょうりが 好きです。休みの日に、パスタを（　　　）。",
+  "options": [
+   "つくることです",
+   "つくります"
+  ],
+  "answer": 1,
+  "explanation": "休みの日の動作を話すので「つくります」を使います。休みの日に、パスタをつくります。"
+ },
+ {
+  "group": "reading",
+  "text": "しゅみは、音楽を（　　　）。",
+  "options": [
+   "ききます",
+   "きくことです"
+  ],
+  "answer": 1,
+  "explanation": "しゅみを紹介する文です。しゅみは、音楽をきくことです。"
+ }
+];
+const explanationsDe = ["Die Wörterbuchform von とります ist とる, nicht とりる.","Die Wörterbuchform von たべます ist たべる.","おきます bedeutet hier „aufstehen“. Die Wörterbuchform ist おきる.","Die Wörterbuchform von よみます ist よむ.","Die Wörterbuchform von みます ist みる.","Um ein Hobby vorzustellen, verwendest du die Wörterbuchform + ことです. Der Satz bedeutet: Mein Hobby ist es, Fotos zu machen.","Hier geht es um eine alltägliche Handlung. Daher passt よみます: Ich lese jeden Tag Bücher.","Hier wird ein Hobby vorgestellt. Daher passt みることです: Mein Hobby ist es, Filme zu schauen.","Hier geht es um eine Handlung an freien Tagen. Daher passt つくります: An freien Tagen mache ich Pasta.","Hier wird ein Hobby vorgestellt. Daher passt きくことです: Mein Hobby ist es, Musik zu hören."];
+questions.forEach((q,i)=>{
+ const card=document.createElement('section');card.className='card';
+ const number=document.createElement('span');number.className='number';number.textContent=String(i+1).padStart(2,'0');card.append(number);
+ if(q.name){const p=document.createElement('p');p.textContent=q.name+'：'+q.text;card.append(p);}
+ if(q.hint){const p=document.createElement('p');p.className='small';p.textContent=q.hint;card.append(p);}
+ const label=document.createElement('label');label.htmlFor='q'+i;label.textContent=q.prompt||q.text;card.append(label);
+ const select=document.createElement('select');select.id='q'+i;select.name='q'+i;select.setAttribute('aria-describedby','f'+i);select.add(new Option('選んでください / Bitte wählen',''));q.options.forEach((option,j)=>select.add(new Option(option,String(j))));card.append(select);
+ const feedback=document.createElement('p');feedback.id='f'+i;feedback.className='feedback';card.append(feedback);document.getElementById(q.group).append(card);
+});
+document.getElementById('practice').addEventListener('submit',event=>{
+ event.preventDefault();let correct=0;let unanswered=0;
+ questions.forEach((q,i)=>{const select=document.getElementById('q'+i);const feedback=document.getElementById('f'+i);const blank=select.value==='';const ok=!blank&&Number(select.value)===q.answer;if(ok)correct++;if(blank)unanswered++;feedback.className='feedback '+(ok?'correct':'wrong');feedback.textContent=(ok?'○ 正解。':blank?'未回答。':'× もう一度確認しましょう。')+' '+q.explanation;const de=document.createElement('span');de.className='de';de.lang='de';de.textContent=(ok?'○ Richtig.':blank?'Keine Antwort gewählt.':'× Prüfe deine Antwort noch einmal.')+' '+explanationsDe[i];feedback.append(de);select.setAttribute('aria-invalid',String(!ok));});
+ document.getElementById('score').textContent='10問中 '+correct+'問正解'+(unanswered?'（未回答 '+unanswered+'問）':'')+'。解説を読んで、もう一度練習しましょう。';const de=document.createElement('span');de.className='de';de.lang='de';de.textContent=correct+' von 10 Antworten richtig'+(unanswered?' ('+unanswered+' unbeantwortet)':'')+'. Lies die Erklärungen und übe noch einmal.';document.getElementById('score').append(de);
+});
+document.getElementById('reset').addEventListener('click',()=>{document.getElementById('practice').reset();questions.forEach((q,i)=>{document.getElementById('f'+i).textContent='';document.getElementById('q'+i).removeAttribute('aria-invalid');});document.getElementById('score').textContent='';document.querySelectorAll('details').forEach(d=>d.open=false);document.getElementById('q0').focus();});
+</script>
+</body></html>
